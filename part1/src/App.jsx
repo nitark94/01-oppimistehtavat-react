@@ -53,6 +53,57 @@ const App = () => {
   const nimi = "Pekka";
   const ika = 10;
 
+  const x = 1;
+  let y = 5;
+
+  console.log(x, y); // tulostaa 1 5
+  y += 10;
+  console.log(x, y); // tulostaa 1 15
+  y = "teksti";
+  console.log(x, y); // tulostaa 1 teksti
+
+  // Tämä aiheuttaa virheen, koska x on const
+  // x = 4;
+
+  const t = [1, -1, 3];
+  console.log(t.length); // tulostuu 3
+  console.log(t[1]);     // tulostuu -1
+
+  t.push(5);
+  console.log(t.length); // tulostuu 4
+
+  t.forEach(value => {
+    console.log(value);  // tulostuu 1, -1, 3, 5 omille riveilleen
+  });
+
+  const object1 = {
+    name: 'Arto Hellas',
+    age: 35,
+    education: 'Filosofian tohtori',
+  };
+
+  const object2 = {
+    name: 'Full Stack -websovelluskehitys',
+    level: 'aineopinto',
+    size: 5,
+  };
+
+  const object3 = {
+    name: {
+      first: 'Juha',
+      last: 'Tauriainen',
+    },
+    grades: [2, 3, 5, 3],
+    department: 'TKTL',
+  };
+
+  console.log(object1.name); // tulostuu Arto Hellas
+  const fieldName = 'age';
+  console.log(object1[fieldName]); // tulostuu 35
+
+  object1.address = 'Tapiola';
+  object1['secret number'] = 12341;
+
   return (
     <div>
       <Header course={course} />
