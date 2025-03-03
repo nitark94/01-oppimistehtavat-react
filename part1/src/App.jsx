@@ -80,7 +80,21 @@ const App = () => {
     name: 'Arto Hellas',
     age: 35,
     education: 'Filosofian tohtori',
+    greet: function() {
+      console.log('hello, my name is', this.name);
+    },
+    doAddition: function(a, b) {
+      console.log(a + b);
+    }
   };
+
+  object1.greet(); // tulostuu hello, my name is Arto Hellas
+  object1.doAddition(1, 4); // tulostuu 5
+
+  const referenceToAddition = object1.doAddition;
+  referenceToAddition(10, 15); // tulostuu 25
+
+  setTimeout(object1.greet.bind(object1), 1000); // tulostuu hello, my name is Arto Hellas sekunnin päästä
 
   const object2 = {
     name: 'Full Stack -websovelluskehitys',
@@ -103,6 +117,35 @@ const App = () => {
 
   object1.address = 'Tapiola';
   object1['secret number'] = 12341;
+
+  const sum = (p1, p2) => {
+    console.log(p1);
+    console.log(p2);
+    return p1 + p2;
+  };
+
+  const result = sum(1, 5);
+  console.log(result);
+
+  const square = p => p * p;
+  console.log(square(4)); // tulostaa 16
+
+  const tSquared = t.map(p => p * p);
+  console.log(tSquared); // tulostuu [1, 1, 9, 25]
+
+  function product(a, b) {
+    return a * b;
+  }
+
+  const vastaus1 = product(2, 6);
+  console.log(vastaus1);
+
+  const average = function(a, b) {
+    return (a + b) / 2;
+  };
+
+  const vastaus2 = average(2, 5);
+  console.log(vastaus2);
 
   return (
     <div>
